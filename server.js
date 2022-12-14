@@ -5,7 +5,7 @@ const PORT = 4000;
 
 const server = express();
 
-app.use(cors());
-app.use(helmet());
+server.use(cors());
+server.use(helmet());
 
 server.listen(PORT, ()=> console.log(`Listening on http://localhost:${PORT}`));
