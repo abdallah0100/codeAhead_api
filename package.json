@@ -1,0 +1,30 @@
+{
+  "name": "codeahead_api",
+  "version": "1.0.0",
+  "description": "Server of CodeAhead",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon server.js",
+    "build:db": "node ./database/build.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/abdallah0100/codeAhead_api.git"
+  },
+  "author": "Abdallah",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/abdallah0100/codeAhead_api/issues"
+  },
+  "homepage": "https://github.com/abdallah0100/codeAhead_api#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "helmet": "^6.0.1",
+    "pg": "^8.8.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  }
+}
