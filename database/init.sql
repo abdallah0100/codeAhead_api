@@ -8,9 +8,9 @@ CREATE TABLE users(
     email VARCHAR(60) NOT NULL,
     password VARCHAR(15) NOT NULL,
     user_role VARCHAR(30) NOT NULL,
-    join_date DATE DEFAULT CURRENT_DATE
+    join_date VARCHAR(11) NOT NULL
 );
 
-INSERT INTO users (username, email, password, user_role) VALUES('Abdallah', 'a@a.a', '123456Aa', 'Admin');
+INSERT INTO users (username, email, password, user_role, join_date) VALUES('Abdallah', 'a@a.a', '123456Aa', 'Admin', '15-12-2022');
 
 COMMIT;
