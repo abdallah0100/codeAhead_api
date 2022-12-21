@@ -11,6 +11,7 @@ CREATE TABLE users(
     join_date VARCHAR(11) NOT NULL
 );
 
-INSERT INTO users (username, email, password, user_role, join_date) VALUES('Abdallah', 'a@a.a', '123456Aa', 'Admin', '15-12-2022');
+INSERT INTO users (username, email, password, user_role, join_date) VALUES('Abdallah', 'a@a.a', '123', 'Admin', '15-12-2022');
+INSERT INTO users (username, email, password, user_role, join_date) VALUES('abdallah1', 'a@a.a1', '123', 'Admin', '15-12-2022');
 
 COMMIT;
