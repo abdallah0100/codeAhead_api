@@ -1,3 +1,4 @@
+const bcrypt = require("bcrypt");
 const db = require('../../database/connection');
 
 function userExist(data){
@@ -11,13 +12,15 @@ function emailExist(data){
 }
 
 function register(data){
+    const salt = bcrypt.genSaltSync(10);//generating 10 salt rounds
+    const password_hash = bcrypt.hashSync(data.password, salt);
     return db.query("INSERT INTO users(username, email, password, user_role, join_date) VALUES($1,$2,$3,$4,$5)",
-    [data.username, data.email, data.password, 'user', data.date]).then(res=> res.rowCount).catch(err=> err);   
+    [data.username, data.email, password_hash, 'user', data.date]).then(res=> res.rowCount).catch(err=> err);   
 }
 
-const logIn = (data)=>{
-    return db.query("SELECT * FROM users WHERE username=$1 AND password=$2", [data.username, data.password])
-    .then(result=> result.rowCount > 0).catch(err=> err);
-};
+const getUser = (data)=>{
+    return db.query("SELECT * FROM users WHERE username=$1", [data.username])
+    .then(result => result.rows[0]).catch(err=> 0);
+}
 
-module.exports = {register, userExist, emailExist, logIn};
+module.exports = {register, userExist, emailExist, getUser};
