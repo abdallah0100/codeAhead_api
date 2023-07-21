@@ -2,6 +2,7 @@ const httpStatus = require("http-status");
 const jwt = require('jsonwebtoken');
 const bcrypt = require("bcrypt");
 const userHandlers = require('./user/userHandlers');
+const categoryHandler = require('./forum/categoryHandler');
 const catchAsync = require("./utils/catchAsync");
 
 const JWT_SECRET = process.env.JWT_SECRET;
@@ -38,5 +39,16 @@ const handleLogin = catchAsync(async (req, res)=>{
         res.status(httpStatus.BAD_REQUEST).send({ msg: "* Invalid username or password." })
 });
 
+const fetchCategories = catchAsync(async (req, res)=>{
+    const cats = await categoryHandler.getAllCategories();
+    res.status(httpStatus.OK).send(cats);
+});
 
-module.exports={handleRegister, handleLogin};
+const fetchSubCategory = catchAsync(async (req, res)=>{
+    const parentCategory = req.body.parentId;
+    const result = await categoryHandler.getSubCategories(parentCategory);
+    res.status(httpStatus.OK).send(result);
+});
+
+
+module.exports={handleRegister, handleLogin, fetchCategories, fetchSubCategory};
