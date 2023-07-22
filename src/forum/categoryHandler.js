@@ -10,4 +10,9 @@ function getSubCategories(parent){
     .catch(err=>err)
 }
 
-module.exports = { getAllCategories, getSubCategories};
+function getSubCatName(id){
+    return db.query('SELECT name FROM subcategory WHERE id=$1', [id]).then(result => result.rows[0])
+    .catch(err => err);
+}
+
+module.exports = { getAllCategories, getSubCategories, getSubCatName};

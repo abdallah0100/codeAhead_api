@@ -50,5 +50,11 @@ const fetchSubCategory = catchAsync(async (req, res)=>{
     res.status(httpStatus.OK).send(result);
 });
 
+const fetchSubCatName = catchAsync(async(req, res)=>{
+    const subId = req.body.id;
+    const result = await categoryHandler.getSubCatName(subId);
+    res.status(httpStatus.OK).send(result);
+});
 
-module.exports={handleRegister, handleLogin, fetchCategories, fetchSubCategory};
+
+module.exports={handleRegister, handleLogin, fetchCategories, fetchSubCategory, fetchSubCatName};

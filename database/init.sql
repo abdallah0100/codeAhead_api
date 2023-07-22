@@ -26,6 +26,13 @@ CREATE TABLE subcategory(
     description VARCHAR(150)
 );
 
+CREATE TABLE thread(
+    threadId SERIAL PRIMARY key,
+    title VARCHAR(50) NOT NULL,
+    subcategory INTEGER not NULL,
+    authorId INTEGER NOT NULL
+);
+
 INSERT INTO users (username, email, password, user_role, join_date) VALUES
 ('Abdallah', 'a@a.a', '$2b$10$T/N3ez7rHNDetLfZydQLKOwfXzXZl03cYy5UZSd40fsJN.qIPyDqS', 'Admin', '23/1/2020');
 
