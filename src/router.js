@@ -7,5 +7,8 @@ router.post('/login', routerController.handleLogin);
 router.post('/fetchCategories', routerController.fetchCategories);
 router.post('/fetchSubCategory', routerController.fetchSubCategory);
 router.post('/fetchCatName', routerController.fetchSubCatName);
+router.post('/create_post', routerController.createPost);
+
+router.post('/getThreads', routerController.getThreadsById);
 
 module.exports = router;

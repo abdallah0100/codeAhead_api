@@ -56,5 +56,18 @@ const fetchSubCatName = catchAsync(async(req, res)=>{
     res.status(httpStatus.OK).send(result);
 });
 
+const createPost = catchAsync(async(req, res) => {
+    const result = await categoryHandler.createPost(req.body);
+    if (result > 0)
+        res.sendStatus(httpStatus.OK);
+    else
+        res.status(httpStatus.BAD_REQUEST).send({ msg: "* An error occured" });
+});
 
-module.exports={handleRegister, handleLogin, fetchCategories, fetchSubCategory, fetchSubCatName};
+const getThreadsById = catchAsync(async(req, res) =>{
+    const result = await categoryHandler.getPosts(req.body.subcat);
+    res.status(httpStatus.OK).send(result);
+});
+
+
+module.exports={handleRegister, handleLogin, fetchCategories, fetchSubCategory, fetchSubCatName, createPost, getThreadsById};

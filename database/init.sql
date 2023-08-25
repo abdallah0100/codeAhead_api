@@ -1,6 +1,6 @@
 BEGIN;
 
-DROP TABLE IF EXISTS users, category, subcategory CASCADE;
+DROP TABLE IF EXISTS users, category, subcategory, thread CASCADE;
 
 CREATE TABLE users(
     id SERIAL PRIMARY KEY,
@@ -29,7 +29,8 @@ CREATE TABLE subcategory(
 CREATE TABLE thread(
     threadId SERIAL PRIMARY key,
     title VARCHAR(50) NOT NULL,
-    subcategory INTEGER not NULL,
+    content VARCHAR(1000) NOT NULL,
+    subcategory INTEGER NOT NULL,
     authorId INTEGER NOT NULL
 );
 
