@@ -23,7 +23,7 @@ const createPost = async(data)=>{
 }
 
 const getPosts = async(subCat)=>{
-    return db.query('SELECT * FROM thread WHERE subcategory=$1', [subCat])
+    return db.query('SELECT thread.threadid, thread.title, users.username FROM thread JOIN users ON subcategory=$1 AND thread.authorid=users.id', [subCat])
     .then(result => result.rows).catch(err => err);
 }
 

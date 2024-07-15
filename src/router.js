@@ -10,5 +10,7 @@ router.post('/fetchCatName', routerController.fetchSubCatName);
 router.post('/create_post', routerController.createPost);
 
 router.post('/getThreads', routerController.getThreadsById);
+router.post('/getThread', routerController.getThreadDataById);
+
 
 module.exports = router;

@@ -3,6 +3,7 @@ const jwt = require('jsonwebtoken');
 const bcrypt = require("bcrypt");
 const userHandlers = require('./user/userHandlers');
 const categoryHandler = require('./forum/categoryHandler');
+const threadHandler = require('./forum/ThreadHandler')
 const catchAsync = require("./utils/catchAsync");
 
 const JWT_SECRET = process.env.JWT_SECRET;
@@ -69,5 +70,10 @@ const getThreadsById = catchAsync(async(req, res) =>{
     res.status(httpStatus.OK).send(result);
 });
 
+const getThreadDataById = catchAsync(async(req, res) => {
+    const result = await threadHandler.getThread(req.body.threadId);
+    res.status(httpStatus.OK).send(result);
+});
 
-module.exports={handleRegister, handleLogin, fetchCategories, fetchSubCategory, fetchSubCatName, createPost, getThreadsById};
+
+module.exports={handleRegister, handleLogin, fetchCategories, fetchSubCategory, fetchSubCatName, createPost, getThreadsById, getThreadDataById};
