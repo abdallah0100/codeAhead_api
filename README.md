@@ -1,11 +1,13 @@
-# CodeAhead_api
-Rest API for CodeAhead | A server to handle all requests
+# CodeAhead_API
+CodeAhead is a private project that I decided to work on after completing a _Full Stack Bootcamp at WebAhead (Founders and Coders - Haifa)_.
+Having _<a target="_blank" href="https://github.com/abdallah0100/codeAhead">CodeAhead</a>_ serve as the user interface of the project, and CodeAhead_API as the main API to manage different requests.
 
-## Running:
-Start by installing all npm modules with npm install
+## About CodeAhead_API
+Supported by Express JS and PostgreSQL, it is serving as the API to handle, store or serve all of _<a target="_blank" href="https://github.com/abdallah0100/codeAhead">CodeAhead</a>_'s requests.
 
-Add .env file with the needed values to connect to database...
+### Data Management
+- Critical data such as a user's password is encrypted using _node.bcrypt.js_ .
+- The url of the database is stored in an environment variable.
 
-run build:db script to initiate the databse (npm run build:db)
-
-start the API (npm start)
+### Technologies
+- JavaScript, Node.js, Express, PostgreSQL
