@@ -58,7 +58,7 @@ const fetchSubCatName = catchAsync(async(req, res)=>{
 });
 
 const createPost = catchAsync(async(req, res) => {
-    const result = await categoryHandler.createPost(req.body);
+    const result = await threadHandler.createPost(req.body);
     if (result > 0)
         res.sendStatus(httpStatus.OK);
     else
@@ -66,7 +66,7 @@ const createPost = catchAsync(async(req, res) => {
 });
 
 const getThreadsById = catchAsync(async(req, res) =>{
-    const result = await categoryHandler.getPosts(req.body.subcat);
+    const result = await threadHandler.getPosts(req.body.subcat);
     res.status(httpStatus.OK).send(result);
 });
 

@@ -31,7 +31,8 @@ CREATE TABLE thread(
     title VARCHAR(50) NOT NULL,
     content VARCHAR(1000) NOT NULL,
     subcategory INTEGER NOT NULL,
-    authorId INTEGER NOT NULL
+    authorId INTEGER NOT NULL,
+    creationDate VARCHAR(20) NOT NULL
 );
 
 INSERT INTO users (username, email, password, user_role, join_date) VALUES
@@ -47,5 +48,7 @@ INSERT INTO subcategory (parentcat, name, description) VALUES
 (1, 'Introduction', 'Introduce yourself.'),
 (2, 'Help', 'Ask for help regarding an issue you faced.'),
 (2, 'Snippets', 'Share snippets with the community.');
+
+INSERT INTO thread (threadId, title, content, subcategory, authorId, creationDate) VALUES(1, 'Development Status', 'CodeAhead is currently under development!', 1, 1, '20-11-2022');
 
 COMMIT;
